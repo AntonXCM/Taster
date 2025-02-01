@@ -5,7 +5,7 @@ namespace Taster.Foods.Renderers
 	[RequireComponent(typeof(Food))]
 	public abstract class FoodRenderer : MonoBehaviour
 	{
-		Food food;
+		protected Food food;
 		private void Start()
 		{
 			food = GetComponent<Food>();

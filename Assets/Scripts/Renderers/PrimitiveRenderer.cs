@@ -6,7 +6,7 @@ namespace Taster.Foods.Renderers
 	{
 		protected override void Render()
 		{
-			gameObject.AddComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("image");
+			gameObject.AddComponent<SpriteRenderer>().sprite = food.Ingredients[0].Sprite;
 			transform.position = Random.insideUnitCircle.normalized * 3;
 			gameObject.AddComponent<BoxCollider2D>();
 		}
