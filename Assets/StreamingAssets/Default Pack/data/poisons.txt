@@ -1,0 +1,1 @@
+seeds,cocos,fish_yellow,berry_black,amanita,potato_poison

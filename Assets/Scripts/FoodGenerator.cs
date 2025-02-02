@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 
+using Taster.DataLoaders;
 using Taster.Foods;
 using UnityEngine;
 namespace Taster.Gameplay

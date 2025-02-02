@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 
+using Taster.DataLoaders;
 using Taster.Foods.Renderers;
 
 using UnityEngine;
@@ -23,7 +24,7 @@ namespace Taster.Foods
             StringBuilder builder = new StringBuilder("This food contains: ");
             foreach(var ingredient in Ingredients)
             {
-                builder.Append(ingredient.Name);
+                builder.Append(Localization.Get(ingredient.Tag));
                 builder.Append(", ");
             }
             print(builder.ToString());

@@ -1,5 +1,7 @@
 ﻿using System;
 
+using Taster.DataLoaders;
+
 using UnityEngine;
 
 namespace Taster.Foods
@@ -11,11 +13,12 @@ namespace Taster.Foods
 		{
 			DigestionTime = maxDigestionTime;
 			MaxDigestionTime = maxDigestionTime;
-			Name = name;
+			Tag = name;
 			Sprite = sprite;
 			Texture = sprite.texture;
 		}
-		public string Name;
+		public string Tag;
+		public string Name => Localization.Get(Tag);
 		public int MaxDigestionTime, DigestionTime;
 		public Sprite Sprite;
 		public Texture2D Texture;

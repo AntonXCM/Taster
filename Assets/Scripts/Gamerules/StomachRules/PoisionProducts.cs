@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
+using Taster.DataLoaders;
+
 using UnityEngine;
 namespace Taster.Gameplay.Rules
 {
@@ -9,7 +11,7 @@ namespace Taster.Gameplay.Rules
 		public override void EatenIngredientsChanged(Stomach stomach)
 		{
 			foreach (var ingridient in stomach.EatenIngredients)
-				if(Database.Poisons.Contains(ingridient.Name)) stomach.Health--;
+				if(Database.Poisons.Contains(ingridient.Tag)) stomach.Health--;
 		}
 	}
 }
