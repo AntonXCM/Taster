@@ -3,19 +3,21 @@ using UnityEngine;
 
 public class Eater : MonoBehaviour
 {
-    FoodGenerator foodGenerator;
+    FoodHolder foodHolder;
     DishSelector dishSelector;
     Stomach stomach;
 
     void Start()
     {
-        foodGenerator = ServiceLocator.Get<FoodGenerator>();
+        foodHolder = ServiceLocator.Get<FoodHolder>();
         dishSelector = ServiceLocator.Get<DishSelector>();
         stomach = ServiceLocator.Get<Stomach>();
     }
 
     public void EatSelectedDish()
     {
-        stomach.Eat(foodGenerator.FoodArray[dishSelector.SelectID]);
+        stomach.Eat(foodHolder.FoodArray[dishSelector.SelectID]);
+        foodHolder.FoodArray[dishSelector.SelectID] = null;
+        foodHolder.ChangeSelectFood();
     }
 }

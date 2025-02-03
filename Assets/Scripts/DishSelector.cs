@@ -8,7 +8,7 @@ public class DishSelector : MonoBehaviour
     [SerializeField] Transform StandTransform;
     [SerializeField] float MoveSpeed;
     [SerializeField] Button LeftArrow, RightArrow;
-    FoodGenerator foodGenerator;
+    FoodHolder foodHolder;
 
     public int SelectID;
 
@@ -20,7 +20,7 @@ public class DishSelector : MonoBehaviour
 
     void Start()
     {
-        foodGenerator = ServiceLocator.Get<FoodGenerator>();
+        foodHolder = ServiceLocator.Get<FoodHolder>();
         Invoke("ChangeDish", 0);
     }
 
@@ -34,7 +34,7 @@ public class DishSelector : MonoBehaviour
 
     public void SwitchStandRight()
     {
-        if (SelectID >= foodGenerator.StandsCount - 1) return;
+        if (SelectID >= foodHolder.StandsCount - 1) return;
 
         SelectID++;
         ChangeDish();
@@ -44,7 +44,7 @@ public class DishSelector : MonoBehaviour
     {
         move = true;
         LeftArrow.interactable = SelectID > 0;
-        RightArrow.interactable = SelectID < foodGenerator.StandsCount - 1;
+        RightArrow.interactable = SelectID < foodHolder.StandsCount - 1;
         OnChangeDish?.Invoke();
     }
 
