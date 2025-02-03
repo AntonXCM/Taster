@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a213cff18ff802246810e1d026ba8025, type: 3}
+  m_Name: DishesBase
+  m_EditorClassIdentifier: 
+  DishesArray:
+  - {fileID: 6486314632825740307, guid: 5806b9543a9c871488f8f291616433c8, type: 3}
+  - {fileID: 2332280450096089667, guid: 5806b9543a9c871488f8f291616433c8, type: 3}
+  - {fileID: -8877300812789035371, guid: 5806b9543a9c871488f8f291616433c8, type: 3}
+  - {fileID: 1849849060426857413, guid: 155de38e97dc5db43afcee96fafe806e, type: 3}
+  - {fileID: -1354745503656713991, guid: 155de38e97dc5db43afcee96fafe806e, type: 3}
+  - {fileID: 8784083527140550662, guid: 155de38e97dc5db43afcee96fafe806e, type: 3}
+  - {fileID: -8905865255136111464, guid: 155de38e97dc5db43afcee96fafe806e, type: 3}
+  - {fileID: -7111263433041376487, guid: e676fe43437dd6b44995a2c7a2787bd9, type: 3}
+  - {fileID: 7927676950927851377, guid: e676fe43437dd6b44995a2c7a2787bd9, type: 3}
+  - {fileID: 1618851168374836661, guid: e676fe43437dd6b44995a2c7a2787bd9, type: 3}
+  - {fileID: -6903566363136535394, guid: e676fe43437dd6b44995a2c7a2787bd9, type: 3}

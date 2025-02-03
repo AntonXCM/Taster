@@ -11,12 +11,18 @@ namespace Taster.Foods
     public class Food : MonoBehaviour
     {
         public List<Ingredient> Ingredients = new();
-        public static Food FromIngridients(IEnumerable<Ingredient> ingredients, string name = "New food object")
+        public static Food FromIngridients(IEnumerable<Ingredient> ingredients, Transform stand, string name = "New food object")
         {
-            Food result = new GameObject(name).AddComponent<Food>();
-            foreach(var ingredient in ingredients)
+            GameObject newDish = new GameObject(name);
+            Food result = newDish.AddComponent<Food>();
+
+            foreach (var ingredient in ingredients)
                 result.Ingredients.Add(ingredient);
-            result.gameObject.AddComponent<PrimitiveRenderer>();
+
+            newDish.AddComponent<PrimitiveRenderer>();
+            newDish.transform.parent = stand;
+            newDish.transform.position = stand.position;
+
             return result;
         }
         private void OnMouseDown()

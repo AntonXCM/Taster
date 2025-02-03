@@ -7,10 +7,14 @@ namespace Taster.Gameplay
 {
 	public class FoodGenerator : MonoBehaviour
 	{
+		[SerializeField] Transform[] FoodStands;
 		private void Awake()
 		{
-            for (int i = 0; i < 5; i++)
-				Food.FromIngridients(GetRandomIngridients());
+			foreach (Transform i in FoodStands)
+			{
+				Food.FromIngridients(GetRandomIngridients(), i);
+			}
+
 			IEnumerable<Ingredient> GetRandomIngridients() 
 			{
 				for(int i = 0; i < 3; i++)

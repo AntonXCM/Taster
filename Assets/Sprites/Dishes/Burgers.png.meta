@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 441ef47b519786449adc053bf300381c
+guid: 5806b9543a9c871488f8f291616433c8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2147685559727469259
-    second: Stand_0
+      213: 6486314632825740307
+    second: Burgers_0
+  - first:
+      213: 2332280450096089667
+    second: Burgers_1
+  - first:
+      213: -8877300812789035371
+    second: Burgers_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,11 +52,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.5, y: 0.47157907}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -75,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -139,23 +145,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Stand_0
+      name: Burgers_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 583
-        height: 386
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 274
+        height: 299
+      alignment: 9
+      pivot: {x: 0.48690456, y: 0.11426868}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bc2bacc33ac1ecd10800000000000000
-      internalID: 2147685559727469259
+      spriteID: 31c1ff6eac4040a50800000000000000
+      internalID: 6486314632825740307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgers_1
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 0
+        width: 288
+        height: 359
+      alignment: 9
+      pivot: {x: 0.49110073, y: 0.081643246}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34ac09066bced5020800000000000000
+      internalID: 2332280450096089667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgers_2
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 0
+        width: 269
+        height: 246
+      alignment: 9
+      pivot: {x: 0.49237788, y: 0.124931194}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59e4c69d1fd7dc480800000000000000
+      internalID: -8877300812789035371
       vertices: []
       indices: 
       edges: []
@@ -164,8 +214,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 0131f0832a2f81748bab3bcd53fb7958
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -174,7 +224,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Stand_0: 2147685559727469259
+      Burgers_0: 6486314632825740307
+      Burgers_1: 2332280450096089667
+      Burgers_2: -8877300812789035371
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
