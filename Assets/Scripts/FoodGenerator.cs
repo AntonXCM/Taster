@@ -8,11 +8,19 @@ namespace Taster.Gameplay
 	public class FoodGenerator : MonoBehaviour
 	{
 		[SerializeField] Transform[] FoodStands;
-		private void Awake()
+		public Food[] FoodArray;
+		
+		public int StandsCount => FoodStands.Length;
+
+		private void Awake() => ServiceLocator.Register(this);
+
+		private void Start()
 		{
-			foreach (Transform i in FoodStands)
+			FoodArray = new Food[StandsCount];
+
+            for (int i = 0; i<FoodStands.Length; i++)
 			{
-				Food.FromIngridients(GetRandomIngridients(), i);
+                FoodArray[i] = Food.FromIngridients(GetRandomIngridients(), FoodStands[i]);
 			}
 
 			IEnumerable<Ingredient> GetRandomIngridients() 

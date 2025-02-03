@@ -9,15 +9,13 @@ namespace Taster.Book
     {
         [SerializeField] BookItem bookItemPrefab;
         [SerializeField] float spacing, labelSpacing;
-        [SerializeField] Transform label;
         void Start()
         {
-            Vector3 startPos = label.position + Vector3.down * labelSpacing;
-            for (int i = 0; i < Database.Poisons.Length; i++)
+            for (int i = 0; i < Database.DangerIngredients.Count; i++)
             {
                 BookItem currentItem = Instantiate(bookItemPrefab,transform);
-                currentItem.Display = Database.Ingredients.Where(I=>I.Tag == Database.Poisons[i]).First();
-                currentItem.transform.position = startPos + Vector3.down * i * spacing;
+                currentItem.Display = Database.DangerIngredients[i];
+                currentItem.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, labelSpacing + i * spacing);
             }
         }
     }

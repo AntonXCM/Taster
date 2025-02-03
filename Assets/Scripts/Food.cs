@@ -25,6 +25,7 @@ namespace Taster.Foods
 
             return result;
         }
+        /*
         private void OnMouseDown()
         {
             StringBuilder builder = new StringBuilder("This food contains: ");
@@ -34,6 +35,6 @@ namespace Taster.Foods
                 builder.Append(", ");
             }
             print(builder.ToString());
-        }
+        }*/
     }
 }
