@@ -1,9 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using Taster.DataLoaders;
 
-using Taster.DataLoaders;
-
-using UnityEngine;
 namespace Taster.Gameplay.Rules
 {
 	public class PoisonProducts : StomachRule

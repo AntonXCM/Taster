@@ -1,8 +1,6 @@
-using System.Linq;
-
 using Taster.DataLoaders;
-
 using UnityEngine;
+
 namespace Taster.Book
 {
     public class PoisonProducts : MonoBehaviour

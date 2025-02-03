@@ -1,6 +1,6 @@
 ﻿using System;
 using Taster.DataLoaders;
-
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Taster.Foods
@@ -22,7 +22,7 @@ namespace Taster.Foods
 		public Sprite Sprite;
 		public Texture2D Texture;
 
-		public string[] DangerCombinations = new string[0];
+		public List<string> DangerCombinations = new List<string>();
         public Ingredient Clone() => (Ingredient)this.MemberwiseClone();
 	}
 }

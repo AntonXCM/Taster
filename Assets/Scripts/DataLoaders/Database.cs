@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-
 using Taster.Foods;
-
 using UnityEngine;
+
 namespace Taster.DataLoaders
 {
 	public static class Database
@@ -46,13 +44,36 @@ namespace Taster.DataLoaders
 					DangerIngredients.Add(i);
 			}
 
-			ProcessDangerCombinations(3);
+			ProcessDangerCombinations(2);
 		}
 
         static void ProcessDangerCombinations(int numberCombinations)
 		{
 			DangerCombinations = new List<string[]>();
 			
+			List<string> BlankIngredients = new List<string>();
+			foreach (Ingredient i in SafeIngredients) BlankIngredients.Add(i.Tag);
+
+			int rand1, rand2;
+            string item1, item2;
+
+            while (BlankIngredients.Count>1)
+			{
+				rand1 = UnityEngine.Random.Range(0, BlankIngredients.Count);
+                rand2 = UnityEngine.Random.Range(0, BlankIngredients.Count);
+				item1 = BlankIngredients[rand1];
+                item2 = BlankIngredients[rand2];
+
+                if (rand1 == rand2) rand2++;
+				if (rand2 >= BlankIngredients.Count) rand2 = 0;
+
+                IngredientDictionary[item1].DangerCombinations.Add(item2);
+                IngredientDictionary[item2].DangerCombinations.Add(item1);
+				DangerCombinations.Add(new string[2] { item1, item2 } );
+
+				if (IngredientDictionary[item1].DangerCombinations.Count >= numberCombinations) BlankIngredients.Remove(item1);
+                if (IngredientDictionary[item2].DangerCombinations.Count >= numberCombinations) BlankIngredients.Remove(item2);
+            }
         }
 
 		public static bool IsSafe(string name) => !Poisons.Contains(name);
