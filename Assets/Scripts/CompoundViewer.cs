@@ -16,8 +16,6 @@ public class CompoundViewer : MonoBehaviour
         dishSelector = ServiceLocator.Get<DishSelector>();
 
         dishSelector.OnChangeDish += ViewCompoundOfDish;
-
-        Invoke("ViewCompoundOfDish", 0);
     } 
 
     void ViewCompoundOfDish()

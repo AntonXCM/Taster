@@ -1,11 +1,13 @@
 using System;
 using Taster.Gameplay;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DishSelector : MonoBehaviour
 {
     [SerializeField] Transform StandTransform;
     [SerializeField] float MoveSpeed;
+    [SerializeField] Button LeftArrow, RightArrow;
     FoodGenerator foodGenerator;
 
     public int SelectID;
@@ -19,6 +21,7 @@ public class DishSelector : MonoBehaviour
     void Start()
     {
         foodGenerator = ServiceLocator.Get<FoodGenerator>();
+        Invoke("ChangeDish", 0);
     }
 
     public void SwitchStandLeft()
@@ -26,16 +29,22 @@ public class DishSelector : MonoBehaviour
         if (SelectID <= 0) return;
 
         SelectID--;
-        move = true;
-        OnChangeDish?.Invoke();
+        ChangeDish();
     }
 
     public void SwitchStandRight()
     {
-        if (SelectID >= foodGenerator.StandsCount-1) return;
+        if (SelectID >= foodGenerator.StandsCount - 1) return;
 
         SelectID++;
+        ChangeDish();
+    }
+
+    public void ChangeDish()
+    {
         move = true;
+        LeftArrow.interactable = SelectID > 0;
+        RightArrow.interactable = SelectID < foodGenerator.StandsCount - 1;
         OnChangeDish?.Invoke();
     }
 
@@ -43,7 +52,7 @@ public class DishSelector : MonoBehaviour
     {
         if (!move) return;
 
-        float needX = SelectID * -9;
+        float needX = SelectID * -7;
         float localSpeed = Mathf.Abs(StandTransform.position.x - needX) + 2f;
 
         if (StandTransform.position.x < needX)

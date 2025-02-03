@@ -11,7 +11,13 @@ namespace Taster.Gameplay.Rules
 		public override void EatenIngredientsChanged(Stomach stomach)
 		{
 			foreach (var ingridient in stomach.EatenIngredients)
-				if(Database.Poisons.Contains(ingridient.Tag)) stomach.Health--;
-		}
+			{
+				if (!Database.IsSafe(ingridient.Tag))
+				{
+					stomach.Poison();
+					return;
+				}
+			}
+        }
 	}
 }

@@ -55,7 +55,7 @@ namespace Taster.DataLoaders
 			
         }
 
-		static bool IsSafe(string name) => !Poisons.Contains(name);
+		public static bool IsSafe(string name) => !Poisons.Contains(name);
 
 		private static void ParseIngredients(List<Ingredient> ingredients, string dataPath)
 		{

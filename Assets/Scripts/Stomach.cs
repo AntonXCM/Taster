@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using Taster.Foods;
 using Taster.Gameplay.Rules;
@@ -8,13 +9,17 @@ namespace Taster.Gameplay
 {
 	public class Stomach : MonoBehaviour
 	{
-		public int Health = 3;
+		public bool Poisoned;
 
 		public HashSet<Ingredient> EatenIngredients = new();
 		public event EatenIngredientsChanged OnEatenIngredientsChanged;
 		public delegate void EatenIngredientsChanged(Stomach stomach);
 
-		void Start()
+		public Action OnChangePoisonedStatus;
+
+        private void Awake() => ServiceLocator.Register(this);
+
+        void Start()
 		{
 			foreach(var rule in GameRule.All)
 				if(rule is StomachRule)
@@ -33,5 +38,26 @@ namespace Taster.Gameplay
 			EatenIngredients.RemoveWhere(a => a.DigestionTime <= 0);
 			Destroy(food.gameObject);
 		}
-	}
+
+		public void Poison()
+		{
+			if (!Poisoned)
+			{
+				Poisoned = true;
+				OnChangePoisonedStatus.Invoke();
+            } 
+			else
+			{
+				Debug.Log("Вы мертвы");
+			}
+		}
+        public void Healing()
+        {
+            if (Poisoned)
+            {
+                Poisoned = false;
+                OnChangePoisonedStatus.Invoke();
+            }
+        }
+    }
 }
