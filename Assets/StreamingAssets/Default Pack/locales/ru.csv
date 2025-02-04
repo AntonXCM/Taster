@@ -1,3 +1,4 @@
+language; Русский
 carrot; Морковь
 tomato; Томат
 banana; Банан
@@ -20,3 +21,15 @@ potato_poison; Зелёный картофель
 pickle; Огурец
 mush; Гриб
 amanita; Мухомор
+play; Играть
+settings; Настройки
+credits; Авторы
+back; Назад
+credits_jam_label; Игра создана для Coco Code GameJam, разработчики игры RobDemo и AntonXCM.
+credits_slime_label; Если игра вам понравилась, вы можете посмотреть другие игры авторов, нажав на картинку справа!
+book_poison; Ядовитые продукты
+book_poison_combination; Опасные комбинации
+book_healing; Лечебные комбинации
+dish_counter; Съедено блюд
+button_eat; Съесть блюдо
+button_change_dish; Заменить блюдо

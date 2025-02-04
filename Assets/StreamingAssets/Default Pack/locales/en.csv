@@ -1,3 +1,4 @@
+language; English
 carrot; Carrot
 tomato; Tomato
 banana; Banana
@@ -20,3 +21,15 @@ potato_poison; Green Potato
 pickle; Pickle
 mush; Mushroom
 amanita; Amanita
+play; Play
+settings; Settings
+credits; Credits
+back; Back
+credits_jam_label; The game was created for Coco Code GameJam, game developers RobDemo and AntonXCM
+credits_slime_label; If you liked the game, you can see other games by the authors by clicking on the picture on the right!
+book_poison; Poisonous products
+book_poison_combination; Dangerous combinations
+book_healing; Treatment combinations
+dish_counter; Dishes eaten
+button_eat; Eat a dish
+button_change_dish; Replace dish

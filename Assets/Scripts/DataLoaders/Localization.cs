@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 using UnityEngine;
 namespace Taster.DataLoaders
@@ -9,7 +9,24 @@ namespace Taster.DataLoaders
 	{
 		private static Locale currentLocale;
 		private static Dictionary<string,Locale> locales = new();
-		public static string Get(string s) => currentLocale.Translations[s];
+
+        public static string currentLanguage;
+        public static Sprite CurrentFlag => currentLocale.Flag;
+
+        public static Action OnChangeLanguage;
+
+        public static string Get(string s)
+		{
+			if (currentLocale.Translations.ContainsKey(s))
+				return currentLocale.Translations[s];
+			else
+			{
+				if (locales["en"].Translations.ContainsKey(s))
+					return locales["en"].Translations[s];
+				else
+					return s;
+			}
+        }
 
 		static Localization()
 		{
@@ -39,12 +56,42 @@ namespace Taster.DataLoaders
 					}
 				}
 			});
-			currentLocale = locales.First().Value;
+
+            // Загрузка языка
+            if (PlayerPrefs.HasKey("Language"))
+                currentLanguage = PlayerPrefs.GetString("Language");
+            else
+            {
+                switch (Application.systemLanguage)
+                {
+                    case SystemLanguage.Russian:
+                        currentLanguage = "ru";
+                        break;
+                    case SystemLanguage.Ukrainian:
+                        currentLanguage = "ua";
+                        break;
+                }
+                PlayerPrefs.SetString("Language", currentLanguage);
+            }
+
+            currentLocale = locales[currentLanguage];
 		}
 		public struct Locale
 		{
 			public Sprite Flag;
 			public Dictionary<string, string> Translations;
 		}
-	}
+
+		public static void SetLanguage(string lg)
+		{
+			if (locales.ContainsKey(lg))
+			{
+				currentLanguage = lg;
+                currentLocale = locales[currentLanguage];
+                PlayerPrefs.SetString("Language", currentLanguage);
+
+				OnChangeLanguage?.Invoke();
+            }
+		}
+    }
 }

@@ -1,3 +1,4 @@
+language; Українська
 carrot; Морква
 tomato; Томат
 banana; Банан
@@ -20,3 +21,9 @@ potato_poison; Зелена картопля
 pickle; Огірок
 mush; Гриб
 amanita; Мухомор
+play; Грати
+settings; Налаштування
+credits; Автори
+back; Назад
+credits_jam_label; Гра створена для Coco Code GameJam, розробники гри RobDemo та AntonXCM.
+credits_slime_label; Якщо гра вам сподобалася, ви можете переглянути інші ігри авторів, натиснувши на картинку праворуч!

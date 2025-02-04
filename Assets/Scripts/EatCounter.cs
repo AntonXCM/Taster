@@ -11,8 +11,8 @@ public class EatCounter : MonoBehaviour
         LabelText = GetComponent<Text>();
         eater = ServiceLocator.Get<Eater>();
         eater.OnEatFood += ChangeScore;
-        LabelText.text = "Съедено блюд: " + eater.Score;
+        ChangeScore();
     }
 
-    void ChangeScore() => LabelText.text = "Съедено блюд: " + eater.Score;
+    void ChangeScore() => LabelText.text = eater.Score + "/10";
 }
