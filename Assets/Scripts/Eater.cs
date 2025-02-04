@@ -1,11 +1,19 @@
+using System;
 using Taster.Gameplay;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Eater : MonoBehaviour
 {
+    public int Score;
+
     FoodHolder foodHolder;
     DishSelector dishSelector;
     Stomach stomach;
+
+    public Action OnEatFood;
+
+    private void Awake() => ServiceLocator.Register(this);
 
     void Start()
     {
@@ -19,5 +27,7 @@ public class Eater : MonoBehaviour
         stomach.Eat(foodHolder.FoodArray[dishSelector.SelectID]);
         foodHolder.FoodArray[dishSelector.SelectID] = null;
         foodHolder.ChangeSelectFood();
+        Score++;
+        OnEatFood?.Invoke();
     }
 }
