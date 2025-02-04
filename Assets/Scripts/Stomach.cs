@@ -12,7 +12,8 @@ namespace Taster.Gameplay
 		public bool Poisoned;
 
 		public HashSet<Ingredient> EatenIngredients = new();
-		public event EatenIngredientsChanged OnEatenIngredientsChanged;
+        public List<Ingredient> JustNowEatenIngredients = new();
+        public event EatenIngredientsChanged OnEatenIngredientsChanged;
 		public delegate void EatenIngredientsChanged(Stomach stomach);
 
 		public Action OnChangePoisonedStatus;
@@ -28,10 +29,15 @@ namespace Taster.Gameplay
 
 		public void Eat(Food food)
 		{
-			foreach(var ingridient in EatenIngredients)
+			JustNowEatenIngredients = new();
+
+            foreach (var ingridient in EatenIngredients)
 				ingridient.DigestionTime--;
-			foreach(var ingridient in food.Ingredients)
+			foreach (var ingridient in food.Ingredients)
+			{
 				EatenIngredients.Add(ingridient);
+                JustNowEatenIngredients.Add(ingridient);
+            }
 
 			OnEatenIngredientsChanged?.Invoke(this);
 

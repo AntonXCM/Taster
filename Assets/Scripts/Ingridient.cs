@@ -23,6 +23,7 @@ namespace Taster.Foods
 		public Texture2D Texture;
 
 		public List<string> DangerCombinations = new List<string>();
+        public List<string> HealingCombinations = new List<string>();
         public Ingredient Clone() => (Ingredient)this.MemberwiseClone();
 	}
 }
