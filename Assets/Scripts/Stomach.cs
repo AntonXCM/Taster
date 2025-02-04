@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using UnityEngine.SceneManagement;
 using Taster.Foods;
 using Taster.Gameplay.Rules;
 
@@ -54,8 +54,8 @@ namespace Taster.Gameplay
             } 
 			else
 			{
-				Debug.Log("Вы мертвы");
-			}
+                SceneManager.LoadScene("Menu");
+            }
 		}
         public void Healing()
         {
