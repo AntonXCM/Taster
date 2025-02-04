@@ -6,7 +6,7 @@ namespace Taster.Gameplay.Rules
 	{
 		public override void EatenIngredientsChanged(Stomach stomach)
 		{
-			foreach (var ingridient in stomach.EatenIngredients)
+			foreach (var ingridient in stomach.JustNowEatenIngredients)
 			{
 				if (!Database.IsSafe(ingridient.Tag))
 				{

@@ -11,7 +11,7 @@ namespace Taster.Foods
     public class Food : MonoBehaviour
     {
         public List<Ingredient> Ingredients = new();
-        public static Food FromIngridients(IEnumerable<Ingredient> ingredients, Transform stand, string name = "New food object")
+        public static Food FromIngridients(Ingredient[] ingredients, Transform stand, string name = "New food object")
         {
             GameObject newDish = new GameObject(name);
             Food result = newDish.AddComponent<Food>();
@@ -25,16 +25,5 @@ namespace Taster.Foods
 
             return result;
         }
-        /*
-        private void OnMouseDown()
-        {
-            StringBuilder builder = new StringBuilder("This food contains: ");
-            foreach(var ingredient in Ingredients)
-            {
-                builder.Append(Localization.Get(ingredient.Tag));
-                builder.Append(", ");
-            }
-            print(builder.ToString());
-        }*/
     }
 }
