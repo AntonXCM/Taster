@@ -10,7 +10,7 @@ namespace Taster.DataLoaders
 		private static Locale currentLocale;
 		private static Dictionary<string,Locale> locales = new();
 
-        public static string currentLanguage;
+        public static string currentLanguage = "en";
         public static Sprite CurrentFlag => currentLocale.Flag;
 
         public static Action OnChangeLanguage;

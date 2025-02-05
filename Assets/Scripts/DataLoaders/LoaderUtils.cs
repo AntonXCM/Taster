@@ -16,8 +16,8 @@ namespace Taster.DataLoaders
 		public static Sprite LoadSprite(string path)
 		{
 			Texture2D texture = new(1, 1, TextureFormat.RGBA32, false) {
-				filterMode = FilterMode.Bilinear,
-				alphaIsTransparency = true
+				filterMode = FilterMode.Bilinear//,
+				//alphaIsTransparency = true
 			};
 			texture.LoadImage(File.ReadAllBytes(path));
 			ApplyAlpha(texture);

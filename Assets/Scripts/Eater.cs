@@ -22,8 +22,12 @@ public class Eater : MonoBehaviour
         stomach = ServiceLocator.Get<Stomach>();
     }
 
+    public bool CanEatThis => foodHolder.AvaibleFoods[dishSelector.SelectID];
+
     public void EatSelectedDish()
     {
+        if (!CanEatThis) return;
+
         stomach.Eat(foodHolder.FoodArray[dishSelector.SelectID]);
         foodHolder.FoodArray[dishSelector.SelectID] = null;
         foodHolder.ChangeSelectFood();

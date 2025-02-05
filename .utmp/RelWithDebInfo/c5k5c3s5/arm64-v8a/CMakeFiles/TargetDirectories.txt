@@ -1,0 +1,8 @@
+D:/Programs/Unity Projects/Taster/.utmp/RelWithDebInfo/c5k5c3s5/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/Programs/Unity Projects/Taster/.utmp/RelWithDebInfo/c5k5c3s5/arm64-v8a/CMakeFiles/rebuild_cache.dir
+D:/Programs/Unity Projects/Taster/.utmp/RelWithDebInfo/c5k5c3s5/arm64-v8a/GameActivity/CMakeFiles/game.dir
+D:/Programs/Unity Projects/Taster/.utmp/RelWithDebInfo/c5k5c3s5/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+D:/Programs/Unity Projects/Taster/.utmp/RelWithDebInfo/c5k5c3s5/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
+D:/Programs/Unity Projects/Taster/.utmp/RelWithDebInfo/c5k5c3s5/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
+D:/Programs/Unity Projects/Taster/.utmp/RelWithDebInfo/c5k5c3s5/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
+D:/Programs/Unity Projects/Taster/.utmp/RelWithDebInfo/c5k5c3s5/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir

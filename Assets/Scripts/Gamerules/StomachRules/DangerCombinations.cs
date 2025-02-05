@@ -16,8 +16,7 @@ public class DangerCombinations : StomachRule
             {
                 if (mainIngridient.DangerCombinations.Contains(otherIngridient.Tag))
                 {
-                    yield return new WaitForSecondsRealtime(0.2f);
-                    stomach.Poison();
+                    stomach.IsPoisonedNow = true;
                     yield break;
                 }
             }

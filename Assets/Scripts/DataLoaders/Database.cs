@@ -51,6 +51,9 @@ namespace Taster.DataLoaders
 				DataSaver.Open<List<string[]>>("DangerCombinations", out DangerCombinations);
                 DataSaver.Open<List<string[]>>("HealingCombinations", out HealingCombinations);
                 DataSaver.Open<List<string>>("AllergyIngredients", out AllergyIngredients);
+
+				LoadDangerCombinations();
+				LoadHealingCombination();
             } 
 			else
 			{
@@ -99,6 +102,20 @@ namespace Taster.DataLoaders
             }
         }
 
+        static void LoadDangerCombinations()
+        {
+            string item1, item2;
+
+            foreach (var i in DangerCombinations)
+            {
+                item1 = i[0];
+                item2 = i[1];
+
+                // Обновляем данные этих предметов, записывая комбинации в каждый из них
+                IngredientDictionary[item1].DangerCombinations.Add(item2);
+                IngredientDictionary[item2].DangerCombinations.Add(item1);
+            }
+        }
         static void ProcessHealingCombinations(int numberCombinations)
         {
             HealingCombinations = new List<string[]>();
@@ -149,7 +166,21 @@ namespace Taster.DataLoaders
             }
         }
 
-		static void ProcessAllergy(int number)
+        static void LoadHealingCombination()
+        {
+            string item1, item2;
+
+            foreach (var i in HealingCombinations)
+            {
+                item1 = i[0];
+                item2 = i[1];
+
+                // Обновляем данные этих предметов, записывая комбинации в каждый из них
+                IngredientDictionary[item1].HealingCombinations.Add(item2);
+                IngredientDictionary[item2].HealingCombinations.Add(item1);
+            }
+        }
+        static void ProcessAllergy(int number)
 		{
             AllergyIngredients = new List<string>();
 

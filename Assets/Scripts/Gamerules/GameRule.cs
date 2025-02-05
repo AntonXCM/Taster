@@ -8,5 +8,6 @@ namespace Taster.Gameplay.Rules
 	{
 		public static List<GameRule> All = new();
 		private void Awake() => All.Add(this);
-	}
+        private void OnDestroy() => All.Remove(this);
+    }
 }

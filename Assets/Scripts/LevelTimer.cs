@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class LevelTimer : MonoBehaviour
 {
-    [SerializeField] int Minutes, Seconds;
+    int Minutes, Seconds = 0;
 
     Text label;
     void Start()
     {
+        Minutes = LevelSelector.currentLevel.Minutes;
+
         label = GetComponent<Text>();
         UpdateTimer();
         StartCoroutine(Timer());
@@ -22,6 +24,7 @@ public class LevelTimer : MonoBehaviour
         while (true)
         {
             yield return new WaitForSecondsRealtime(1f);
+            
             Seconds--;
             if (Seconds<0)
             {

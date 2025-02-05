@@ -10,8 +10,8 @@ namespace Taster.Gameplay.Rules
 			{
 				if (!Database.IsSafe(ingridient.Tag))
 				{
-					stomach.Poison();
-					return;
+                    stomach.IsPoisonedNow = true;
+                    return;
 				}
 			}
         }

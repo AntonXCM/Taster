@@ -16,8 +16,7 @@ public class HealingCombinations : StomachRule
             {
                 if (mainIngridient.HealingCombinations.Contains(otherIngridient.Tag))
                 {
-                    yield return new WaitForSecondsRealtime(0.5f);
-                    stomach.Healing();
+                    stomach.IsHealingNow = true;
                     yield break;
                 }
             }

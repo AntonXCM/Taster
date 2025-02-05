@@ -11,7 +11,9 @@ namespace Taster.Gameplay
 	{
 		public bool Poisoned;
 
-		public HashSet<Ingredient> EatenIngredients = new();
+        public bool IsPoisonedNow, IsHealingNow;
+
+        public HashSet<Ingredient> EatenIngredients = new();
         public List<Ingredient> JustNowEatenIngredients = new();
         public event EatenIngredientsChanged OnEatenIngredientsChanged;
 		public delegate void EatenIngredientsChanged(Stomach stomach);
@@ -20,7 +22,7 @@ namespace Taster.Gameplay
 
         private void Awake() => ServiceLocator.Register(this);
 
-        void Start()
+        public void RegisterAllStomachRules()
 		{
 			foreach(var rule in GameRule.All)
 				if(rule is StomachRule)
@@ -39,9 +41,15 @@ namespace Taster.Gameplay
                 JustNowEatenIngredients.Add(ingridient);
             }
 
-			OnEatenIngredientsChanged?.Invoke(this);
+			IsPoisonedNow = false;
+			IsHealingNow = false;
 
-			EatenIngredients.RemoveWhere(a => a.DigestionTime <= 0);
+            OnEatenIngredientsChanged?.Invoke(this);
+
+			if (IsPoisonedNow && !IsHealingNow) Poison();
+            if (!IsPoisonedNow && IsHealingNow) Healing();
+
+            EatenIngredients.RemoveWhere(a => a.DigestionTime <= 0);
 			Destroy(food.gameObject);
 		}
 
