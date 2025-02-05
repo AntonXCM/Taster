@@ -20,7 +20,7 @@ public class DishSelector : MonoBehaviour
     void Start()
     {
         foodHolder = ServiceLocator.Get<FoodHolder>();
-        Invoke("ChangeDish", 0);
+        Invoke("ChangeDish", 0.1f);
     }
 
     public void SwitchStandLeft()

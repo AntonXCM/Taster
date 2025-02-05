@@ -10,7 +10,7 @@ namespace Taster.DataLoaders
 		private static Locale currentLocale;
 		private static Dictionary<string,Locale> locales = new();
 
-        public static string currentLanguage = "en";
+        public static string currentLanguage;
         public static Sprite CurrentFlag => currentLocale.Flag;
 
         public static Action OnChangeLanguage;
@@ -70,6 +70,9 @@ namespace Taster.DataLoaders
                     case SystemLanguage.Ukrainian:
                         currentLanguage = "ua";
                         break;
+					default:
+						currentLanguage = "en";
+						break;
                 }
                 PlayerPrefs.SetString("Language", currentLanguage);
             }
