@@ -16,6 +16,7 @@ namespace Taster.DataLoaders
 
 		public static List<string[]> DangerCombinations;
 		public static List<string[]> HealingCombinations;
+        public static List<string> AllergyIngredients;
 
         static Database()
 		{
@@ -45,8 +46,22 @@ namespace Taster.DataLoaders
 					DangerIngredients.Add(i);
 			}
 
-			ProcessDangerCombinations(2);
-			ProcessHealingCombinations(1);
+			if (DataSaver.IsSaveExists("DangerCombinations"))
+			{
+				DataSaver.Open<List<string[]>>("DangerCombinations", out DangerCombinations);
+                DataSaver.Open<List<string[]>>("HealingCombinations", out HealingCombinations);
+                DataSaver.Open<List<string>>("AllergyIngredients", out AllergyIngredients);
+            } 
+			else
+			{
+                ProcessDangerCombinations(2);
+                ProcessHealingCombinations(1);
+				ProcessAllergy(3);
+
+                DataSaver.Save(DangerCombinations, "DangerCombinations");
+                DataSaver.Save(HealingCombinations, "HealingCombinations");
+                DataSaver.Save(AllergyIngredients, "AllergyIngredients");
+            }
         }
 
         static void ProcessDangerCombinations(int numberCombinations)
@@ -133,6 +148,23 @@ namespace Taster.DataLoaders
 				}
             }
         }
+
+		static void ProcessAllergy(int number)
+		{
+            AllergyIngredients = new List<string>();
+
+            List<string> BlankIngredients = new List<string>();
+			foreach (Ingredient i in SafeIngredients) BlankIngredients.Add(i.Tag);
+
+			int randID;
+			for (int i = 0; i < number; i++)
+			{
+				randID = Random.Range(0, BlankIngredients.Count);
+
+				AllergyIngredients.Add(BlankIngredients[randID]);
+                BlankIngredients.RemoveAt(randID);
+            }
+		}
 
         public static bool IsSafe(string name) => !Poisons.Contains(name);
 
