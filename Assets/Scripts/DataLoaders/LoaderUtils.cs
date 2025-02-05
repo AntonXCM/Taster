@@ -15,12 +15,27 @@ namespace Taster.DataLoaders
 		}
 		public static Sprite LoadSprite(string path)
 		{
-			Texture2D texture = new(1,1,TextureFormat.RGBA32, false);
+			Texture2D texture = new(1, 1, TextureFormat.RGBA32, false) {
+				filterMode = FilterMode.Bilinear,
+				alphaIsTransparency = true
+			};
 			texture.LoadImage(File.ReadAllBytes(path));
-			
-			Sprite sprite = Sprite.Create(texture, new(0,0,texture.width,texture.height),Vector2.one/2,100, 1,SpriteMeshType.Tight,new(0.5f,0.5f,1,1),false);
+			ApplyAlpha(texture);
+			Sprite sprite = Sprite.Create(texture, new(0,0,texture.width,texture.height),Vector2.one/2,100, 0,SpriteMeshType.FullRect,new(-0.5f,-0.5f,1,1),false);
 			sprite.name = Path.GetFileName(path);
 			return sprite;
+		}
+
+		private static void ApplyAlpha(Texture2D texture)
+		{
+			for(int x = 0; x < texture.width; x++)
+				for(int y = 0; y < texture.height; y++)
+				{
+					Color c = texture.GetPixel(x, y);
+					c.r *= c.a; c.g *= c.a; c.b *= c.a;
+					texture.SetPixel(x, y, c);
+				}
+			texture.Apply();
 		}
 	}
 }
