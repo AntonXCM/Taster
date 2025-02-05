@@ -33,3 +33,6 @@ book_healing; Treatment combinations
 dish_counter; Dishes eaten
 button_eat; Eat a dish
 button_change_dish; Replace dish
+game_over; Game Over
+retry; Retry
+back_to_menu; Back to menu

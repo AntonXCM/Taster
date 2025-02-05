@@ -33,3 +33,6 @@ book_healing; Лечебные комбинации
 dish_counter; Съедено блюд
 button_eat; Съесть блюдо
 button_change_dish; Заменить блюдо
+game_over; Игра окончена
+retry; Заново
+back_to_menu; Вернутся в меню

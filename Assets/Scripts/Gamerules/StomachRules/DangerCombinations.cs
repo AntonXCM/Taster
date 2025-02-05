@@ -10,20 +10,18 @@ public class DangerCombinations : StomachRule
 
     IEnumerator ProcessCombination(Stomach stomach)
     {
-        yield return null;
-
         foreach (Ingredient mainIngridient in stomach.JustNowEatenIngredients)
         {
             foreach (Ingredient otherIngridient in stomach.JustNowEatenIngredients)
             {
                 if (mainIngridient.DangerCombinations.Contains(otherIngridient.Tag))
                 {
-                    yield return new WaitForSecondsRealtime(0.5f);
+                    yield return new WaitForSecondsRealtime(0.2f);
                     stomach.Poison();
                     yield break;
                 }
             }
-            yield return null;
         }
+        yield break;
     }
 }

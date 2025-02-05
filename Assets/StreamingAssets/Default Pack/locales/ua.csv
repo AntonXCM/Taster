@@ -27,3 +27,12 @@ credits; Автори
 back; Назад
 credits_jam_label; Гра створена для Coco Code GameJam, розробники гри RobDemo та AntonXCM.
 credits_slime_label; Якщо гра вам сподобалася, ви можете переглянути інші ігри авторів, натиснувши на картинку праворуч!
+book_poison; Отруйні продукти
+book_poison_combination; Небезпечні комбінації
+book_healing; Лікувальні комбінації
+dish_counter; З'їдено страв
+button_eat; З'їсти страву
+button_change_dish; Замінити страву
+game_over; Гра закінчена
+retry; Заново
+back_to_menu; Повернутись до меню

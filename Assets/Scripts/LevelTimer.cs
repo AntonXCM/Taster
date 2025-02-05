@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelTimer : MonoBehaviour
@@ -18,7 +19,7 @@ public class LevelTimer : MonoBehaviour
 
     IEnumerator Timer()
     {
-        while (Minutes>0 || Seconds>0)
+        while (true)
         {
             yield return new WaitForSecondsRealtime(1f);
             Seconds--;
@@ -29,6 +30,7 @@ public class LevelTimer : MonoBehaviour
 
                 if (Minutes<0)
                 {
+                    SceneManager.LoadScene("GameOver");
                     yield break;
                 }
             }

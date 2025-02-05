@@ -10,20 +10,18 @@ public class HealingCombinations : StomachRule
 
     IEnumerator ProcessCombination(Stomach stomach)
     {
-        yield return null;
-
         foreach (Ingredient mainIngridient in stomach.JustNowEatenIngredients)
         {
             foreach (Ingredient otherIngridient in stomach.JustNowEatenIngredients)
             {
                 if (mainIngridient.HealingCombinations.Contains(otherIngridient.Tag))
                 {
-                    yield return new WaitForSecondsRealtime(1f);
+                    yield return new WaitForSecondsRealtime(0.5f);
                     stomach.Healing();
                     yield break;
                 }
             }
-            yield return null;
         }
+        yield break;
     }
 }

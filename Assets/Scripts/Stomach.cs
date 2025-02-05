@@ -54,7 +54,7 @@ namespace Taster.Gameplay
             } 
 			else
 			{
-                SceneManager.LoadScene("Menu");
+                SceneManager.LoadScene("GameOver");
             }
 		}
         public void Healing()
