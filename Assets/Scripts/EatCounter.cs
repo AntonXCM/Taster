@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EatCounter : MonoBehaviour
 {
@@ -20,6 +21,6 @@ public class EatCounter : MonoBehaviour
     void ChangeScore()
     {
         LabelText.text = eater.Score + "/" + needCount;
-        if (eater.Score >= needCount) LabelText.color = Color.green;
+        if (eater.Score >= needCount) SceneManager.LoadScene("Win");
     }
 }
