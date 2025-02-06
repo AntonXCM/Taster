@@ -35,6 +35,7 @@ public class WinScreen : MonoBehaviour
     {
         if (nextLevel == null) return;
         LevelSelector.setLevel(nextLevel);
+        LevelSelector.levelID++;
         SceneManager.LoadScene("Game");
     }
 }
