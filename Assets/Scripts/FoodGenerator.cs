@@ -50,7 +50,7 @@ namespace Taster.Gameplay
 
             for (int i = 0; i < 3; i++)
             {
-                int randID = Random.Range(0, safeList.Count);
+                int randID = UnityEngine.Random.Range(0, safeList.Count);
                 Ingredient randProduct = safeList[randID];
                 compound[i] = randProduct.Clone();
 
@@ -67,57 +67,46 @@ namespace Taster.Gameplay
 
             float randomChance = Random.Range(0f, 1f);
             int mainProductID = Random.Range(0, 2);
+            int otherProduct = mainProductID == 0 ? 2 : 0;
             Ingredient mainProduct = compound[mainProductID];
 
-            if (randomChance < chanceForPoisonProduct)
+            switch (randomChance)
             {
-                Debug.Log("Poison");
-                // Добавление ядовитого продукта
-                compound[Random.Range(0, 3)] = Database.DangerIngredients[Random.Range(0, Database.DangerIngredients.Count)].Clone();
-            } 
-            else if (randomChance < chanceForPoisonCombination && mainProduct.DangerCombinations.Count>0)
-            {
-                Debug.Log("Poison Combo");
-                // Добавление опасной комбинации
-                string newProduct = mainProduct.DangerCombinations[Random.Range(0, mainProduct.DangerCombinations.Count)];
+                case float i when (i < chanceForPoisonProduct):
+                    Debug.Log("Poison");
+                    // Добавление ядовитого продукта
+                    compound[Random.Range(0, 3)] = Database.GetRandomPoison();
+                    break;
 
-                compound[mainProductID + 1] = Database.IngredientDictionary[newProduct].Clone();
-            }
-            else if (randomChance < chanceForHealingCombination && mainProduct.HealingCombinations.Count>0)
-            {
-                Debug.Log("Healing");
-                // Добавление лечебной комбинации
-                string newProduct = mainProduct.HealingCombinations[Random.Range(0, mainProduct.HealingCombinations.Count)];
+                case float i when (i < chanceForPoisonCombination && mainProduct.DangerCombinations.Count > 0):
+                    Debug.Log("Poison Combo");
+                    // Добавление опасной комбинации
+                    compound[mainProductID + 1] = mainProduct.GetRandomDangerCombination();
+                    break;
 
-                compound[mainProductID + 1] = Database.IngredientDictionary[newProduct].Clone();
-            }
-            else if (randomChance < chanceForPoisonAndHealingProduct && mainProduct.HealingCombinations.Count > 0)
-            {
-                Debug.Log("Healing and Poison");
-                // Добавление лечебной комбинации с ядовитым продуктом
-                string newProduct = mainProduct.HealingCombinations[Random.Range(0, mainProduct.HealingCombinations.Count)];
+                case float i when (i < chanceForHealingCombination && mainProduct.HealingCombinations.Count > 0):
+                    Debug.Log("Healing");
+                    // Добавление лечебной комбинации
+                    compound[mainProductID + 1] = mainProduct.GetRandomHealingCombination();
+                    break;
 
-                compound[mainProductID + 1] = Database.IngredientDictionary[newProduct].Clone();
+                case float i when (i < chanceForPoisonAndHealingProduct && mainProduct.HealingCombinations.Count > 0):
+                    Debug.Log("Healing and Poison");
+                    // Добавление лечебной комбинации с ядовитым продуктом
+                    compound[mainProductID + 1] = mainProduct.GetRandomHealingCombination();
+                    compound[otherProduct] = Database.GetRandomPoison();
+                    break;
 
-                int otherProduct = 0;
-                if (mainProductID == 0) otherProduct = 2;
-                compound[otherProduct] = Database.DangerIngredients[Random.Range(0, Database.DangerIngredients.Count)].Clone();
-            }
-            else if (randomChance < chanceForDobulePoisonProduct && mainProduct.DangerCombinations.Count > 0)
-            {
-                Debug.Log("Dobule Poison");
-                // Добавление опасной комбинации с ядовитым продуктом
-                string newProduct = mainProduct.DangerCombinations[Random.Range(0, mainProduct.DangerCombinations.Count)];
+                case float i when (i < chanceForDobulePoisonProduct && mainProduct.DangerCombinations.Count > 0):
+                    Debug.Log("Dobule Poison");
+                    // Добавление опасной комбинации с ядовитым продуктом
+                    compound[mainProductID + 1] = mainProduct.GetRandomDangerCombination();
+                    compound[otherProduct] = Database.GetRandomPoison();
+                    break;
 
-                compound[mainProductID + 1] = Database.IngredientDictionary[newProduct].Clone();
-
-                int otherProduct = 0;
-                if (mainProductID == 0) otherProduct = 2;
-                compound[otherProduct] = Database.DangerIngredients[Random.Range(0, Database.DangerIngredients.Count)].Clone();
-            }
-            else
-            {
-                Debug.Log("Normal");
+                default:
+                    Debug.Log("Normal");
+                    break;
             }
 
             foodHolder.FoodArray[id] = Food.FromIngridients(compound, foodHolder.FoodStands[id]);

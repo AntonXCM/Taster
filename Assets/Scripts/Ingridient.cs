@@ -24,6 +24,15 @@ namespace Taster.Foods
 
 		public List<string> DangerCombinations = new List<string>();
         public List<string> HealingCombinations = new List<string>();
+
+		public Ingredient GetRandomDangerCombination()
+		{
+			return Database.IngredientDictionary[DangerCombinations[UnityEngine.Random.Range(0, DangerCombinations.Count)]].Clone();
+		}
+        public Ingredient GetRandomHealingCombination()
+        {
+            return Database.IngredientDictionary[HealingCombinations[UnityEngine.Random.Range(0, HealingCombinations.Count)]].Clone();
+        }
         public Ingredient Clone() => (Ingredient)this.MemberwiseClone();
 	}
 }

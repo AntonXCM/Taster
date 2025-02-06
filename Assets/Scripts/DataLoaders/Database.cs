@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using Taster.Book;
 using Taster.Foods;
 using UnityEngine;
 
@@ -197,8 +198,11 @@ namespace Taster.DataLoaders
             }
 		}
 
+        public static Ingredient GetRandomPoison()
+        {
+            return DangerIngredients[UnityEngine.Random.Range(0, DangerIngredients.Count)].Clone();
+        }
         public static bool IsSafe(string name) => !Poisons.Contains(name);
-
 		private static void ParseIngredients(List<Ingredient> ingredients, string dataPath)
 		{
 			foreach(string line in File.ReadLines(Path.Combine(dataPath, "data", "ingredients.csv")))
