@@ -8,5 +8,5 @@ public class LevelData : ScriptableObject
     public int Minutes;
     public int NeedEatDishCount;
 
-    [Range(0, 1)] public float ChanceForPoisonProduct, ChanceForPoisonCombination, ChanceForHealingCombination, ChanceForPoisonAndHealingProduct;
+    [Range(0, 1)] public float ChanceForPoisonProduct, ChanceForPoisonCombination, ChanceForHealingCombination, ChanceForPoisonAndHealingProduct, ChanceForDobulePoisonProduct;
 }

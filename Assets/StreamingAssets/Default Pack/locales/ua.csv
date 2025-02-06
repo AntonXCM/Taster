@@ -26,6 +26,7 @@ settings; Налаштування
 credits; Автори
 quit; Вийти
 back; Назад
+next; Далі
 credits_jam_label; Гра створена для Coco Code GameJam, розробники гри RobDemo та AntonXCM.
 credits_slime_label; Якщо гра вам сподобалася, ви можете переглянути інші ігри авторів, натиснувши на картинку праворуч!
 book_poison; Отруйні продукти
@@ -37,3 +38,17 @@ button_change_dish; Замінити страву
 game_over; Гра закінчена
 retry; Заново
 back_to_menu; Повернутись до меню
+day; День
+end; Кінець
+win; День закінчено
+level_begining; початок
+level_allergy; алергія
+level_immunity; імунітет
+level_addiction; залежність
+level_hunger; голод
+level_begining_message; You are starting your job as a taster! You need to eat as many dishes as possible, make sure that the dish does not contain poisonous foods or dangerous combinations of foods.
+level_allergy_message; Doctors have discovered that you are allergic to [allergy1]. Now eating this product will cause you poisoning, be careful!
+level_immunity_message; You feel strange. It looks like you've come down with some weird disease, but poisonous foods no longer make you sick. Strange, isn't it? Dangerous food combinations can still make you sick.
+level_addiction_message; There's clearly something wrong with you. You want to eat more and more poisons. Now eating food without poisonous foods causes you to become poisoned. Make sure that there is at least one poisonous product in the dish. This won't end well...
+level_hunger_message; You are getting worse and worse, you have developed a real addiction to poisons. Now you feel sick if you don't eat anything for a long time. Try to select dishes as quickly as possible, otherwise you will eat the dish in front of you.
+ending_message; It becomes increasingly difficult for you to hide your addiction from others. Very soon other people will understand that you are deliberately eating poisons, but you no longer care. You are ordering more and more food from dubious producers who are poisoning ordinary people for money. But poisons no longer poison you, you are not afraid of being poisoned. The body overflowing with poisons drowns out all feelings except hunger... You want more... Much more...

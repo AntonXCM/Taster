@@ -8,6 +8,7 @@ public class LevelCard : MonoBehaviour
     [SerializeField] string Name;
     [SerializeField] Text DayNumberText, LabelText;
 
+    bool opened;
     LevelSelector levelSelector;
 
     void Start()
@@ -15,6 +16,9 @@ public class LevelCard : MonoBehaviour
         levelSelector = ServiceLocator.Get<LevelSelector>();
 
         GetComponent<Button>().onClick.AddListener(SelectLevel);
+
+        opened = Number <= PlayerPrefs.GetInt("Completed levels") + 1;
+        GetComponent<Button>().interactable = opened;
 
         Localization.OnChangeLanguage += SetText;
         SetText();
@@ -25,7 +29,7 @@ public class LevelCard : MonoBehaviour
     void SetText()
     {
         DayNumberText.text = Localization.Get("day") + " " + Number;
-        LabelText.text = Localization.Get("level_" + Name);
+        LabelText.text = opened ? Localization.Get("level_" + Name) : "?";
     }
 
     private void OnDestroy() => Localization.OnChangeLanguage -= SetText;

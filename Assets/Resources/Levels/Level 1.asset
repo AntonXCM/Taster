@@ -17,7 +17,7 @@ MonoBehaviour:
   - PoisonProduct
   - PoisonCombinations
   - HealingCombinations
-  Minutes: 4
+  Minutes: 5
   NeedEatDishCount: 10
   ChanceForPoisonProduct: 0.2
   ChanceForPoisonCombination: 0.4

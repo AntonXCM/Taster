@@ -19,9 +19,10 @@ MonoBehaviour:
   - Allergy1
   - NeedPoisonProducts
   - HungerTimer
-  Minutes: 2
-  NeedEatDishCount: 10
-  ChanceForPoisonProduct: 0.3
+  Minutes: 4
+  NeedEatDishCount: 15
+  ChanceForPoisonProduct: 0.1
   ChanceForPoisonCombination: 0.4
-  ChanceForHealingCombination: 0.1
-  ChanceForPoisonAndHealingProduct: 0.2
+  ChanceForHealingCombination: 0
+  ChanceForPoisonAndHealingProduct: 0.1
+  ChanceForDobulePoisonProduct: 0.3

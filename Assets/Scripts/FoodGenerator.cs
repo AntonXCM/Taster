@@ -10,7 +10,7 @@ namespace Taster.Gameplay
 	{
 		FoodHolder foodHolder;
 
-        float chanceForPoisonProduct, chanceForPoisonCombination, chanceForHealingCombination, chanceForPoisonAndHealingProduct;
+        float chanceForPoisonProduct, chanceForPoisonCombination, chanceForHealingCombination, chanceForPoisonAndHealingProduct, chanceForDobulePoisonProduct;
 
         private void Awake() => ServiceLocator.Register(this);
 
@@ -24,6 +24,7 @@ namespace Taster.Gameplay
             chanceForPoisonCombination = chanceForPoisonProduct + LevelSelector.currentLevel.ChanceForPoisonCombination;
             chanceForHealingCombination = chanceForPoisonCombination + LevelSelector.currentLevel.ChanceForHealingCombination;
             chanceForPoisonAndHealingProduct = chanceForHealingCombination + LevelSelector.currentLevel.ChanceForPoisonAndHealingProduct;
+            chanceForDobulePoisonProduct = chanceForPoisonAndHealingProduct + LevelSelector.currentLevel.ChanceForDobulePoisonProduct;
 
             StartCoroutine(Generation());
         }
@@ -101,7 +102,19 @@ namespace Taster.Gameplay
                 int otherProduct = 0;
                 if (mainProductID == 0) otherProduct = 2;
                 compound[otherProduct] = Database.DangerIngredients[Random.Range(0, Database.DangerIngredients.Count)].Clone();
-            } 
+            }
+            else if (randomChance < chanceForDobulePoisonProduct && mainProduct.DangerCombinations.Count > 0)
+            {
+                Debug.Log("Dobule Poison");
+                // Добавление опасной комбинации с ядовитым продуктом
+                string newProduct = mainProduct.DangerCombinations[Random.Range(0, mainProduct.DangerCombinations.Count)];
+
+                compound[mainProductID + 1] = Database.IngredientDictionary[newProduct].Clone();
+
+                int otherProduct = 0;
+                if (mainProductID == 0) otherProduct = 2;
+                compound[otherProduct] = Database.DangerIngredients[Random.Range(0, Database.DangerIngredients.Count)].Clone();
+            }
             else
             {
                 Debug.Log("Normal");

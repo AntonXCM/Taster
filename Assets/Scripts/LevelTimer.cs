@@ -7,11 +7,12 @@ public class LevelTimer : MonoBehaviour
 {
     int Minutes, Seconds = 0;
 
+    Eater eater;
     Text label;
     void Start()
     {
         Minutes = LevelSelector.currentLevel.Minutes;
-
+        eater = ServiceLocator.Get<Eater>();
         label = GetComponent<Text>();
         UpdateTimer();
         StartCoroutine(Timer());
@@ -33,7 +34,10 @@ public class LevelTimer : MonoBehaviour
 
                 if (Minutes<0)
                 {
-                    SceneManager.LoadScene("GameOver");
+                    if (eater.Score >= LevelSelector.currentLevel.NeedEatDishCount)
+                        SceneManager.LoadScene("Win");
+                    else
+                        SceneManager.LoadScene("GameOver");
                     yield break;
                 }
             }

@@ -21,6 +21,7 @@ MonoBehaviour:
   Minutes: 3
   NeedEatDishCount: 10
   ChanceForPoisonProduct: 0.3
-  ChanceForPoisonCombination: 0.4
-  ChanceForHealingCombination: 0.1
+  ChanceForPoisonCombination: 0.3
+  ChanceForHealingCombination: 0.05
   ChanceForPoisonAndHealingProduct: 0.15
+  ChanceForDobulePoisonProduct: 0.1

@@ -26,6 +26,7 @@ settings; Settings
 credits; Credits
 quit; Quit
 back; Back
+next; Next
 credits_jam_label; The game was created for Coco Code GameJam, game developers RobDemo and AntonXCM
 credits_slime_label; If you liked the game, you can see other games by the authors by clicking on the picture on the right!
 book_poison; Poisonous products
@@ -38,6 +39,8 @@ game_over; Game Over
 retry; Retry
 back_to_menu; Back to menu
 day; Day
+end; End
+win; The day is over
 level_begining; begining
 level_allergy; allergy
 level_immunity; immunity
@@ -48,3 +51,4 @@ level_allergy_message; Doctors have discovered that you are allergic to [allergy
 level_immunity_message; You feel strange. It looks like you've come down with some weird disease, but poisonous foods no longer make you sick. Strange, isn't it? Dangerous food combinations can still make you sick.
 level_addiction_message; There's clearly something wrong with you. You want to eat more and more poisons. Now eating food without poisonous foods causes you to become poisoned. Make sure that there is at least one poisonous product in the dish. This won't end well...
 level_hunger_message; You are getting worse and worse, you have developed a real addiction to poisons. Now you feel sick if you don't eat anything for a long time. Try to select dishes as quickly as possible, otherwise you will eat the dish in front of you.
+ending_message; It becomes increasingly difficult for you to hide your addiction from others. Very soon other people will understand that you are deliberately eating poisons, but you no longer care. You are ordering more and more food from dubious producers who are poisoning ordinary people for money. But poisons no longer harm you, you are not afraid of being poisoned. The body overflowing with poisons drowns out all feelings except hunger... You want more... Much more...

@@ -17,5 +17,9 @@ public class EatCounter : MonoBehaviour
         ChangeScore();
     }
 
-    void ChangeScore() => LabelText.text = eater.Score + "/" + needCount;
+    void ChangeScore()
+    {
+        LabelText.text = eater.Score + "/" + needCount;
+        if (eater.Score >= needCount) LabelText.color = Color.green;
+    }
 }
