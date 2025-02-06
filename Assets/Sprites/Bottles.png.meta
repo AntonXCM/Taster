@@ -93,7 +93,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -323,7 +323,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bottles_0: -7172836395497189917
+      Bottles_1: -2581080033288118992
+      Bottles_2: -9097609937258072320
+      Bottles_3: -1862565925632257176
+      Bottles_4: -3417626953198778296
+      Bottles_5: 3662690913637824071
+      Bottles_6: -5547722821297095399
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

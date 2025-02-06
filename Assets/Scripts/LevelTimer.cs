@@ -25,23 +25,26 @@ public class LevelTimer : MonoBehaviour
         while (true)
         {
             yield return new WaitForSecondsRealtime(1f);
-            
-            Seconds--;
-            if (Seconds<0)
-            {
-                Minutes--;
-                Seconds += 60;
 
-                if (Minutes<0)
+            if (Time.timeScale > 0)
+            {
+                Seconds--;
+                if (Seconds < 0)
                 {
-                    if (eater.Score >= LevelSelector.currentLevel.NeedEatDishCount)
-                        SceneManager.LoadScene("Win");
-                    else
-                        SceneManager.LoadScene("GameOver");
-                    yield break;
+                    Minutes--;
+                    Seconds += 60;
+
+                    if (Minutes < 0)
+                    {
+                        if (eater.Score >= LevelSelector.currentLevel.NeedEatDishCount)
+                            SceneManager.LoadScene("Win");
+                        else
+                            SceneManager.LoadScene("GameOver");
+                        yield break;
+                    }
                 }
+                UpdateTimer();
             }
-            UpdateTimer();
         }
     }
 }
