@@ -1,13 +1,28 @@
 fileFormatVersion: 2
-guid: fe52aa40f80cf7342bb918db3978e0ba
+guid: 894019ae5d5e29e4981d134441eaf6d6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1185527514606905908
-    second: Potions_0
+      213: -7172836395497189917
+    second: Bottles_0
   - first:
-      213: -1061600653231999548
-    second: Potions_1
+      213: -2581080033288118992
+    second: Bottles_1
+  - first:
+      213: -9097609937258072320
+    second: Bottles_2
+  - first:
+      213: -1862565925632257176
+    second: Bottles_3
+  - first:
+      213: -3417626953198778296
+    second: Bottles_4
+  - first:
+      213: 3662690913637824071
+    second: Bottles_5
+  - first:
+      213: -5547722821297095399
+    second: Bottles_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -78,7 +93,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -142,45 +157,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Potions_0
+      name: Bottles_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 302
         width: 234
-        height: 292
-      alignment: 9
-      pivot: {x: 0.39948502, y: 0.09606723}
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 43aa89b4ef6d37010800000000000000
-      internalID: 1185527514606905908
+      spriteID: 3ed85663d47f47c90800000000000000
+      internalID: -7172836395497189917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Potions_1
+      name: Bottles_1
       rect:
         serializedVersion: 2
-        x: 245
-        y: 0
-        width: 234
-        height: 292
-      alignment: 9
-      pivot: {x: 0.40391946, y: 0.0865908}
+        x: 244
+        y: 302
+        width: 191
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4c5b8ca94df6441f0800000000000000
-      internalID: -1061600653231999548
+      spriteID: 03d120782692e2cd0800000000000000
+      internalID: -2581080033288118992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bottles_2
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 302
+        width: 191
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0073ba896fbceb180800000000000000
+      internalID: -9097609937258072320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bottles_3
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 302
+        width: 190
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86351ffa826d626e0800000000000000
+      internalID: -1862565925632257176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bottles_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 235
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84849c7b4662290d0800000000000000
+      internalID: -3417626953198778296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bottles_5
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 0
+        width: 192
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 746fe6deafd74d230800000000000000
+      internalID: 3662690913637824071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bottles_6
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 191
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91d3244bc778203b0800000000000000
+      internalID: -5547722821297095399
       vertices: []
       indices: 
       edges: []
@@ -189,7 +314,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 551ce3f2b57628348b9a754cf95d5a8d
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -198,9 +323,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Potions_0: 1185527514606905908
-      Potions_1: -1061600653231999548
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
