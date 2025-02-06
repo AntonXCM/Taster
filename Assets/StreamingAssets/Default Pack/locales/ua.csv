@@ -1,4 +1,4 @@
-language; Українська
+﻿language; Українська
 carrot; Морква
 tomato; Томат
 banana; Банан
@@ -46,9 +46,9 @@ level_allergy; алергія
 level_immunity; імунітет
 level_addiction; залежність
 level_hunger; голод
-level_begining_message; You are starting your job as a taster! You need to eat as many dishes as possible, make sure that the dish does not contain poisonous foods or dangerous combinations of foods.
-level_allergy_message; Doctors have discovered that you are allergic to [allergy1]. Now eating this product will cause you poisoning, be careful!
-level_immunity_message; You feel strange. It looks like you've come down with some weird disease, but poisonous foods no longer make you sick. Strange, isn't it? Dangerous food combinations can still make you sick.
-level_addiction_message; There's clearly something wrong with you. You want to eat more and more poisons. Now eating food without poisonous foods causes you to become poisoned. Make sure that there is at least one poisonous product in the dish. This won't end well...
-level_hunger_message; You are getting worse and worse, you have developed a real addiction to poisons. Now you feel sick if you don't eat anything for a long time. Try to select dishes as quickly as possible, otherwise you will eat the dish in front of you.
-ending_message; It becomes increasingly difficult for you to hide your addiction from others. Very soon other people will understand that you are deliberately eating poisons, but you no longer care. You are ordering more and more food from dubious producers who are poisoning ordinary people for money. But poisons no longer poison you, you are not afraid of being poisoned. The body overflowing with poisons drowns out all feelings except hunger... You want more... Much more...
+level_begining_message; Ви починаєте роботу дегустатора! Вам потрібно їсти якомога більше страв, стежити, щоб страва не містила отруйних продуктів або небезпечних поєднань продуктів.
+level_allergy_message; Лікарі виявили, що у вас алергія на [allergy1]. Тепер вживання цього продукту призведе до отруєння, будьте обережні!
+level_immunity_message; Ви почуваєтеся дивно. Здається, ви захворіли на якусь дивну хворобу, але отруйна їжа більше не робить вас хворим. Дивно, чи не так? Небезпечні поєднання їжі все ще можуть викликати у вас отруєння.
+level_addiction_message; З вами явно щось не так. Ви хочете їсти все більше і більше отрути. Тепер вживання їжі без отруйних продуктів призводить до отруєння. Переконайтеся, що в страві є хоча б один отруйний продукт. Це добре не закінчиться...
+level_hunger_message; Вам стає все гірше і гірше, у вас виникла справжня залежність від отрут. Тепер вам стає погано, якщо ви довго нічого не їсте. Намагайтеся вибирати страви якомога швидше, інакше ви з'їсте блюдо перед собою.
+ending_message; Вам стає все важче приховувати свою залежність від інших. Дуже скоро інші люди зрозуміють, що ви навмисно їсте отруту, але вас це вже не хвилює. Ви замовляєте все більше їжі у сумнівних виробників, які за гроші труять простих людей. Але отрути тебе вже не отруюють, ти не боїшся бути отруєним. Тіло, переповнене отрутами, заглушає всі почуття, крім голоду... Хочеться більше... Набагато більше...
