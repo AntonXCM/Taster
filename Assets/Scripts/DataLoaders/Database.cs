@@ -203,16 +203,20 @@ namespace Taster.DataLoaders
             return DangerIngredients[UnityEngine.Random.Range(0, DangerIngredients.Count)].Clone();
         }
         public static bool IsSafe(string name) => !Poisons.Contains(name);
-		private static void ParseIngredients(List<Ingredient> ingredients, string dataPath)
+		private static async void ParseIngredients(List<Ingredient> ingredients, string dataPath)
 		{
 			foreach(string line in File.ReadLines(Path.Combine(dataPath, "data", "ingredients.csv")))
 			{
 				string[] parts = line.Split(';');
 				string name = parts[0].Trim();
 				ingredients.Add(new(
-					int.Parse(parts[1].Trim()), //Время переваривания
-					name, //Имя
-					LoaderUtils.LoadSprite(Path.Combine(dataPath, LoaderUtils.GRAPHICS_FOLDER_NAME, "ingredients", name + ".png"))));//Спрайт
+					int.Parse(parts[1].Trim()), 
+					name,
+#if PLATFORM_STANDALONE_WIN
+					LoaderUtils.LoadSprite(Path.Combine(dataPath, LoaderUtils.GRAPHICS_FOLDER_NAME, "ingredients", name + ".png"))));
+#else
+					await LoaderUtils.LoadSpriteAsync(Path.Combine(dataPath, LoaderUtils.GRAPHICS_FOLDER_NAME, "ingredients", name + ".png"))));
+#endif
 			}
 		}
 		private static void ParsePoisons(List<string> poisons, string dataPath)

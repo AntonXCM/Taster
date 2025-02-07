@@ -30,19 +30,26 @@ namespace Taster.DataLoaders
 
 		static Localization()
 		{
-			LoaderUtils.IterateInPacks(dataPath =>
+#pragma warning disable CS1998
+			LoaderUtils.IterateInPacks(async dataPath =>
 			{
 				foreach(var file in Directory.GetFiles(Path.Combine(dataPath, "locales")))
 				{
 					if(file.EndsWith(".meta")) continue;
 					string localeName = Path.GetFileNameWithoutExtension(file);
 					if(locales.ContainsKey(localeName))
-					{
 						foreach(var translation in GetTranslations())
 							locales[localeName].Translations.TryAdd(translation.Key, translation.Value);
-					} else
+					else
 					{
-						Sprite sprite = LoaderUtils.LoadSprite(Path.Combine(dataPath,LoaderUtils.GRAPHICS_FOLDER_NAME,"locales",localeName+".png"));
+						Sprite sprite = 
+#if PLATFORM_STANDALONE_WIN
+							LoaderUtils.LoadSprite(Path.Combine(dataPath,LoaderUtils.GRAPHICS_FOLDER_NAME,"locales",localeName+".png"));
+#else
+						await LoaderUtils.LoadSpriteAsync(Path.Combine(dataPath,LoaderUtils.GRAPHICS_FOLDER_NAME,"locales",localeName+".png"));
+						#endif
+
+
 						locales[localeName] = new Locale { Flag = sprite, Translations = new Dictionary<string, string>(GetTranslations()) };
 					}
 
@@ -56,9 +63,10 @@ namespace Taster.DataLoaders
 					}
 				}
 			});
+#pragma warning restore CS1998
 
-            // Загрузка языка
-            if (PlayerPrefs.HasKey("Language"))
+			// Загрузка языка
+			if (PlayerPrefs.HasKey("Language"))
                 currentLanguage = PlayerPrefs.GetString("Language");
             else
             {

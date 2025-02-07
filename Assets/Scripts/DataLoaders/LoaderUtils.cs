@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Taster.DataLoaders
 {
@@ -23,6 +25,27 @@ namespace Taster.DataLoaders
 			ApplyAlpha(texture);
 			Sprite sprite = Sprite.Create(texture, new(0,0,texture.width,texture.height),Vector2.one/2,100, 0,SpriteMeshType.FullRect,new(-0.5f,-0.5f,1,1),false);
 			sprite.name = Path.GetFileName(path);
+			
+			return sprite;
+		}
+		//I'm so sorry of making this function with Chat GPT (ToT)
+		public static async Task<Sprite> LoadSpriteAsync(string path)
+		{
+			using UnityWebRequest request = UnityWebRequestTexture.GetTexture("file://" + path);
+			var operation = request.SendWebRequest();
+
+			while(!operation.isDone)
+				await Task.Yield();
+
+			if(request.result != UnityWebRequest.Result.Success)
+				return null;
+
+			Texture2D texture = DownloadHandlerTexture.GetContent(request);
+			ApplyAlpha(texture);
+
+			Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one / 2, 100, 0, SpriteMeshType.FullRect, new Vector4(-0.5f, -0.5f, 1, 1), false);
+			sprite.name = System.IO.Path.GetFileName(path);
+
 			return sprite;
 		}
 
@@ -38,4 +61,5 @@ namespace Taster.DataLoaders
 			texture.Apply();
 		}
 	}
+	
 }
