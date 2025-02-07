@@ -21,8 +21,8 @@ MonoBehaviour:
   - HungerTimer
   Minutes: 4
   NeedEatDishCount: 15
-  ChanceForPoisonProduct: 0.1
-  ChanceForPoisonCombination: 0.4
+  ChanceForPoisonProduct: 0.15
+  ChanceForPoisonCombination: 0.35
   ChanceForHealingCombination: 0
   ChanceForPoisonAndHealingProduct: 0.1
-  ChanceForDobulePoisonProduct: 0.3
+  ChanceForDobulePoisonProduct: 0.25

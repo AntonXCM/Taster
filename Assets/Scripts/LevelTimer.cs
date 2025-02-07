@@ -5,10 +5,13 @@ using UnityEngine.UI;
 
 public class LevelTimer : MonoBehaviour
 {
-    int Minutes, Seconds = 0;
+    public int Minutes, Seconds = 0;
 
     Eater eater;
     Text label;
+
+    private void Awake() => ServiceLocator.Register(this);
+
     void Start()
     {
         Minutes = LevelSelector.currentLevel.Minutes;
