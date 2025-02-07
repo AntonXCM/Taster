@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-
 using UnityEngine;
+
 namespace Taster.DataLoaders
 {
-	public static class Localization
-	{
-		private static Locale currentLocale;
+    [CreateAssetMenu(fileName = "Localization", menuName = "Scriptable Objects/Localization")]
+    public class Localization : ScriptableObject
+    {
+        [SerializeField] Sprite[] Flags;
+		[SerializeField] TextAsset[] Assets;
+
+        private static Locale currentLocale;
 		private static Dictionary<string,Locale> locales = new();
 
         public static string currentLanguage;
@@ -28,45 +31,32 @@ namespace Taster.DataLoaders
 			}
         }
 
-		static Localization()
-		{
-#pragma warning disable CS1998
-			LoaderUtils.IterateInPacks(async dataPath =>
-			{
-				foreach(var file in Directory.GetFiles(Path.Combine(dataPath, "locales")))
-				{
-					if(file.EndsWith(".meta")) continue;
-					string localeName = Path.GetFileNameWithoutExtension(file);
-					if(locales.ContainsKey(localeName))
-						foreach(var translation in GetTranslations())
-							locales[localeName].Translations.TryAdd(translation.Key, translation.Value);
-					else
-					{
-						Sprite sprite = 
-#if PLATFORM_STANDALONE_WIN
-							LoaderUtils.LoadSprite(Path.Combine(dataPath,LoaderUtils.GRAPHICS_FOLDER_NAME,"locales",localeName+".png"));
-#else
-						await LoaderUtils.LoadSpriteAsync(Path.Combine(dataPath,LoaderUtils.GRAPHICS_FOLDER_NAME,"locales",localeName+".png"));
-						#endif
+        [RuntimeInitializeOnLoadMethod]
+        private static void OnGameStart()
+        {
+            Localization loadBase = Resources.Load<Localization>("Localization");
 
+            for (int i = 0; i < loadBase.Assets.Length; i++)
+            {
+                TextAsset file = loadBase.Assets[i];
 
-						locales[localeName] = new Locale { Flag = sprite, Translations = new Dictionary<string, string>(GetTranslations()) };
-					}
+                Sprite sprite = loadBase.Flags[i];
 
-					IEnumerable<KeyValuePair<string,string>> GetTranslations()
-					{
-						foreach(string row in File.ReadLines(file))
-						{
-							string[] strings = row.Split(';');
-							yield return new(strings[0], strings[1].Trim());
-						}
-					}
-				}
-			});
-#pragma warning restore CS1998
+                locales[file.name] = new Locale { Flag = sprite, Translations = new Dictionary<string, string>(GetTranslations(file)) };
 
-			// Загрузка языка
-			if (PlayerPrefs.HasKey("Language"))
+                IEnumerable<KeyValuePair<string, string>> GetTranslations(TextAsset file)
+                {
+                    string[] rows = file.text.Split('\n');
+                    foreach (string row in rows)
+                    {
+                        string[] strings = row.Split(';');
+                        yield return new(strings[0], strings[1].Trim());
+                    }
+                }
+            }
+
+            // Загрузка языка
+            if (PlayerPrefs.HasKey("Language"))
                 currentLanguage = PlayerPrefs.GetString("Language");
             else
             {

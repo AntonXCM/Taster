@@ -14,16 +14,14 @@ namespace Taster.Foods
 			MaxDigestionTime = maxDigestionTime;
 			Tag = name;
 			Sprite = sprite;
-			Texture = sprite.texture;
 		}
 		public string Tag;
 		public string Name => Localization.Get(Tag);
 		public int MaxDigestionTime, DigestionTime;
 		public Sprite Sprite;
-		public Texture2D Texture;
 
-		public List<string> DangerCombinations = new List<string>();
-        public List<string> HealingCombinations = new List<string>();
+		[HideInInspector] public List<string> DangerCombinations = new List<string>();
+        [HideInInspector] public List<string> HealingCombinations = new List<string>();
 
 		public Ingredient GetRandomDangerCombination()
 		{

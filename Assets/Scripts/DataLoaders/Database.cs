@@ -1,36 +1,38 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using Taster.Book;
 using Taster.Foods;
 using UnityEngine;
 
 namespace Taster.DataLoaders
 {
-	public static class Database
-	{
-		public static Ingredient[] Ingredients;
-		public static Dictionary<string, Ingredient> IngredientDictionary;
-		public static List<string> Poisons, AllergyIngredients;
+    [CreateAssetMenu(fileName = "Database", menuName = "Scriptable Objects/Database")]
+    public class Database: ScriptableObject
+    {
+        [SerializeField] Ingredient[] LoadIngredients;
+        [SerializeField] List<string> LoadPoisons;
 
-		public static List<Ingredient> SafeIngredients, DangerIngredients;
+        public static Ingredient[] Ingredients;
+		public static List<string> Poisons;
 
-		public static List<string[]> DangerCombinations, HealingCombinations;
+        public static Dictionary<string, Ingredient> IngredientDictionary;
 
-        static Database()
-		{
-			List<Ingredient> ingredients = new();
-			List<string> poisons = new();
+        public static List<Ingredient> SafeIngredients;
+		public static List<Ingredient> DangerIngredients;
 
-			LoaderUtils.IterateInPacks(dataPath =>
-			{
-				ParseIngredients(ingredients, dataPath);
-				ParsePoisons(poisons, dataPath);
-			});
+		public static List<string[]> DangerCombinations;
+		public static List<string[]> HealingCombinations;
+        public static List<string> AllergyIngredients;
 
-			Ingredients = ingredients.ToArray();
-			Poisons = poisons;
 
-			SafeIngredients = new List<Ingredient>();
+        [RuntimeInitializeOnLoadMethod]
+        private static void OnGameStart()
+        {
+            Database loadBase = Resources.Load<Database>("Database");
+
+			Ingredients = loadBase.LoadIngredients;
+            Poisons = loadBase.LoadPoisons;
+
+            SafeIngredients = new List<Ingredient>();
 			DangerIngredients = new List<Ingredient>();
 			IngredientDictionary = new Dictionary<string, Ingredient>();
 
@@ -200,25 +202,5 @@ namespace Taster.DataLoaders
             return DangerIngredients[UnityEngine.Random.Range(0, DangerIngredients.Count)].Clone();
         }
         public static bool IsSafe(string name) => !Poisons.Contains(name);
-		private static async void ParseIngredients(List<Ingredient> ingredients, string dataPath)
-		{
-			foreach(string line in File.ReadLines(Path.Combine(dataPath, "data", "ingredients.csv")))
-			{
-				string[] parts = line.Split(';');
-				string name = parts[0].Trim();
-				ingredients.Add(new(
-					int.Parse(parts[1].Trim()), 
-					name,
-#if PLATFORM_STANDALONE_WIN
-					LoaderUtils.LoadSprite(Path.Combine(dataPath, LoaderUtils.GRAPHICS_FOLDER_NAME, "ingredients", name + ".png"))));
-#else
-					await LoaderUtils.LoadSpriteAsync(Path.Combine(dataPath, LoaderUtils.GRAPHICS_FOLDER_NAME, "ingredients", name + ".png"))));
-#endif
-			}
-		}
-		private static void ParsePoisons(List<string> poisons, string dataPath)
-		{
-			poisons.AddRange(File.ReadAllText(Path.Combine(dataPath, "data", "poisons.txt")).Split(','));
-		}
 	}
 }
