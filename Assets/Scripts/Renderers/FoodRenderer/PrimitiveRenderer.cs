@@ -7,7 +7,7 @@ namespace Taster.Foods.Renderers
 		protected override void Render()
 		{
 			gameObject.AddComponent<SpriteRenderer>().sprite = DishesBase.Dishes[Random.Range(0, DishesBase.Dishes.Length)];
-			gameObject.AddComponent<Billboard>();
+			//gameObject.AddComponent<Billboard>();
 		}
 	}
 }

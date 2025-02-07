@@ -20,7 +20,8 @@ public class DishSelector : MonoBehaviour
     void Start()
     {
         foodHolder = ServiceLocator.Get<FoodHolder>();
-        Invoke("ChangeDish", 0.1f);
+        LeftArrow.interactable = SelectID > 0;
+        RightArrow.interactable = SelectID < foodHolder.StandsCount - 1;
     }
 
     public void SwitchStandLeft()
