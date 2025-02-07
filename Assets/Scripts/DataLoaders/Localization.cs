@@ -87,6 +87,7 @@ namespace Taster.DataLoaders
 
             currentLocale = locales[currentLanguage];
 		}
+		[Serializable]
 		public struct Locale
 		{
 			public Sprite Flag;

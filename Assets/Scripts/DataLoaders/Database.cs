@@ -10,14 +10,11 @@ namespace Taster.DataLoaders
 	{
 		public static Ingredient[] Ingredients;
 		public static Dictionary<string, Ingredient> IngredientDictionary;
-		public static List<string> Poisons;
+		public static List<string> Poisons, AllergyIngredients;
 
-		public static List<Ingredient> SafeIngredients;
-		public static List<Ingredient> DangerIngredients;
+		public static List<Ingredient> SafeIngredients, DangerIngredients;
 
-		public static List<string[]> DangerCombinations;
-		public static List<string[]> HealingCombinations;
-        public static List<string> AllergyIngredients;
+		public static List<string[]> DangerCombinations, HealingCombinations;
 
         static Database()
 		{
