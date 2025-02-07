@@ -18,7 +18,7 @@ MonoBehaviour:
   - HealingCombinations
   - Allergy1
   - NeedPoisonProducts
-  Minutes: 2
+  Minutes: 3
   NeedEatDishCount: 10
   ChanceForPoisonProduct: 0.3
   ChanceForPoisonCombination: 0.3
